@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5a2438">
+  <meta name="description" content="The personal website of Anindita and Subrata — Kolkata roots, New York memories, 25 years of marriage, music, travel, and faith.">
+  <title>Anindita &amp; Subrata | Our Story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wine: #632b42;
+      --wine-dark: #3d1c2b;
+      --rose: #b56c7e;
+      --gold: #d9b56d;
+      --cream: #fffaf4;
+      --ink: #2d2630;
+      --muted: #71666d;
+      --paper: #f7eee8;
+      --white: #fff;
+      --shadow: 0 18px 50px rgba(61, 28, 43, .13);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+    .topbar {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 5;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 24px; padding: 24px clamp(20px, 6vw, 84px);
+      color: white;
+    }
+    .brand { font-size: .82rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .nav { display: flex; gap: 26px; align-items: center; }
+    .nav a { color: white; text-decoration: none; font-size: .9rem; opacity: .92; }
+    .nav a:hover { color: var(--gold); }
+    .hero {
+      min-height: 92vh; display: grid; align-items: end; position: relative; overflow: hidden;
+      background: var(--wine-dark);
+      isolation: isolate;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: -2;
+      background: url("anindita-subrata.jpg") center 42% / cover no-repeat;
+      transform: scale(1.015);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(90deg, rgba(28, 12, 22, .76) 0%, rgba(28, 12, 22, .42) 48%, rgba(28, 12, 22, .12) 100%),
+                  linear-gradient(0deg, rgba(28, 12, 22, .58), transparent 62%);
+    }
+    .hero-content { color: white; max-width: 900px; padding: 160px clamp(22px, 9vw, 130px) 100px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 12px; margin-bottom: 22px;
+      color: #f0d8a5; font-size: .78rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 38px; height: 1px; background: var(--gold); }
+    h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; font-weight: 600; line-height: 1.12; }
+    h1 { margin: 0; font-size: clamp(3.3rem, 8vw, 7.4rem); letter-spacing: -.045em; }
+    h1 span { display: block; color: #f1d7a1; font-size: .54em; font-style: italic; font-weight: 500; letter-spacing: .01em; margin: 8px 0; }
+    .hero p { max-width: 570px; margin: 28px 0 32px; color: rgba(255,255,255,.9); font-size: clamp(1rem, 2vw, 1.2rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button {
+      display: inline-block; padding: 13px 22px; border-radius: 999px; text-decoration: none;
+      font-size: .9rem; font-weight: 700; transition: transform .2s, background .2s;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { background: var(--gold); color: var(--wine-dark); }
+    .button.secondary { border: 1px solid rgba(255,255,255,.65); color: white; }
+    .scroll-note { position: absolute; bottom: 28px; right: clamp(20px, 6vw, 84px); color: white; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; writing-mode: vertical-rl; opacity: .8; }
+    .intro { padding: 100px 24px 92px; text-align: center; }
+    .section-inner { max-width: 1050px; margin: 0 auto; }
+    .kicker { color: var(--rose); font-size: .75rem; letter-spacing: .2em; font-weight: 700; text-transform: uppercase; }
+    h2 { margin: 12px 0 20px; font-size: clamp(2.2rem, 4.5vw, 4rem); color: var(--wine-dark); }
+    .intro .lead { max-width: 760px; margin: 0 auto; color: var(--muted); font-size: 1.08rem; }
+    .ornament { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 28px 0; color: var(--rose); }
+    .ornament::before, .ornament::after { content: ""; height: 1px; width: 54px; background: #dfc8c4; }
+    .story { background: var(--paper); padding: 90px 24px; }
+    .story-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+    .photo-card { position: relative; }
+    .photo-card img { display: block; width: 100%; border-radius: 180px 180px 14px 14px; box-shadow: var(--shadow); }
+    .photo-caption { position: absolute; bottom: 18px; left: 18px; right: 18px; padding: 12px 16px; background: rgba(255,250,244,.92); border-radius: 10px; color: var(--wine); font-size: .84rem; text-align: center; }
+    .story-copy p { color: var(--muted); }
+    .story-copy .highlight { font-family: "Playfair Display", Georgia, serif; font-size: 1.45rem; color: var(--wine); line-height: 1.5; }
+    .values { padding: 94px 24px 105px; }
+    .values-head { text-align: center; margin-bottom: 42px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .value-card {
+      padding: 32px 28px; background: white; border: 1px solid #f0e3df; border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(61,28,43,.04);
+    }
+    .value-icon { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%; background: #f7e9e6; color: var(--wine); font-size: 1.45rem; }
+    .value-card h3 { margin: 22px 0 12px; font-size: 1.55rem; color: var(--wine); }
+    .value-card p { margin: 0; color: var(--muted); font-size: .96rem; }
+    .quote-band { background: var(--wine-dark); color: white; text-align: center; padding: 76px 24px; }
+    .quote-band blockquote { max-width: 850px; margin: 0 auto; font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.7rem, 3.6vw, 3rem); line-height: 1.4; }
+    .quote-band p { margin: 22px 0 0; color: #e7c88f; letter-spacing: .13em; font-size: .78rem; text-transform: uppercase; }
+    .closing { padding: 88px 24px; text-align: center; }
+    .closing p { max-width: 640px; margin: 0 auto 26px; color: var(--muted); }
+    footer { padding: 28px 20px; text-align: center; background: #f1e5df; color: #796971; font-size: .82rem; }
+    footer strong { color: var(--wine); }
+    .heart { color: #a84e68; }
+    @media (max-width: 760px) {
+      .topbar { padding: 18px 20px; }
+      .nav { gap: 14px; }
+      .nav a { font-size: .78rem; }
+      .brand { letter-spacing: .1em; font-size: .7rem; }
+      .hero { min-height: 86vh; }
+      .hero::before { background-position: 56% center; }
+      .hero::after { background: linear-gradient(90deg, rgba(28,12,22,.74), rgba(28,12,22,.27)), linear-gradient(0deg, rgba(28,12,22,.55), transparent 72%); }
+      .hero-content { padding: 140px 24px 78px; }
+      .scroll-note { display: none; }
+      .intro, .story, .values { padding-top: 68px; padding-bottom: 70px; }
+      .story-grid { grid-template-columns: 1fr; }
+      .photo-card { max-width: 520px; margin: 0 auto; }
+      .cards { grid-template-columns: 1fr; }
+      .value-card { padding: 27px; }
+    }
+    @media (max-width: 420px) {
+      .nav a:nth-child(2) { display: none; }
+      h1 { font-size: 3.2rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" style="text-decoration:none">A <span class="heart">♥</span> S</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#story">Our Story</a>
+      <a href="#what-we-love">What We Love</a>
+      <a href="#blessings">Our Beliefs</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-label="Anindita and Subrata in Times Square">
+      <div class="hero-content">
+        <div class="eyebrow">Kolkata roots · New York memories</div>
+        <h1>ANINDITA <span>&amp;</span> SUBRATA</h1>
+        <p>Two hearts, one journey — celebrating 25 years of marriage, the joy of discovery, the comfort of music, and the grace of faith.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#story">Discover Our Story</a>
+          <a class="button secondary" href="#what-we-love">A Few Things We Love</a>
+        </div>
+      </div>
+      <div class="scroll-note">Our story continues ↓</div>
+    </section>
+
+    <section class="intro">
+      <div class="section-inner">
+        <div class="kicker">A life shared with love</div>
+        <h2>From Kolkata to New York</h2>
+        <p class="lead">Rooted in the warmth and spirit of Kolkata, India, and making memories in New York City, we carry home in our hearts wherever life takes us.</p>
+        <div class="ornament" aria-hidden="true">✦ ♥ ✦</div>
+        <p class="lead">Twenty-five years of marriage have taught us that the best journeys are not measured in miles, but in moments shared, faith kept, music enjoyed, and memories made together.</p>
+      </div>
+    </section>
+
+    <section class="story" id="story">
+      <div class="section-inner story-grid">
+        <div class="photo-card">
+          <img src="anindita-subrata.jpg" alt="Anindita and Subrata smiling together in Times Square, New York City" loading="lazy">
+          <div class="photo-caption">Together in the city that never sleeps ✨</div>
+        </div>
+        <div class="story-copy">
+          <div class="kicker">Our journey</div>
+          <h2>Twenty-five years, one beautiful story</h2>
+          <p class="highlight">“The greatest adventures are the ones we share.”</p>
+          <p>We are Anindita and Subrata — a happily married couple from Kolkata, India, now living in New York City. Over the years, life has brought us new places to explore, new experiences to treasure, and countless reasons to be grateful.</p>
+          <p>Through every season, we find happiness in each other's company, strength in our faith, and inspiration in the simple beauty of everyday life. Our story is still unfolding, and we look forward to every chapter ahead.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="values" id="what-we-love">
+      <div class="section-inner">
+        <div class="values-head">
+          <div class="kicker">The things that make life beautiful</div>
+          <h2>What We Love</h2>
+          <p class="lead" style="max-width:650px;margin:0 auto;color:var(--muted)">A few of the joys that bring rhythm, wonder, and meaning to our days.</p>
+        </div>
+        <div class="cards">
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">♫</div>
+            <h3>Music</h3>
+            <p>Music brings back memories, lifts the spirit, and makes ordinary moments feel special. From familiar melodies to new sounds, there is always a song for the journey.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-icon" aria-hidden="true">✈</div>
+            <h3>Travel</h3>
+            <p>We love discovering places, experiencing different cultures, and collecting memories along the way — while keeping the spirit of Kolkata close to our hearts.</p>
+          </article>
+          <article class="value-card" id="blessings">
+            <div class="value-icon" aria-hidden="true">✧</div>
+            <h3>Faith &amp; Gratitude</h3>
+            <p>Our religious faith is a source of strength, peace, and gratitude. It reminds us to cherish our blessings, care for others, and meet each new day with hope.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band">
+      <blockquote>“Wherever we go, home is the love we carry, the faith that guides us, and the life we build together.”</blockquote>
+      <p>Anindita &amp; Subrata · Together since 25 years</p>
+    </section>
+
+    <section class="closing">
+      <div class="kicker">With love, always</div>
+      <h2>Here's to the next chapter</h2>
+      <p>More music to enjoy, more places to explore, more blessings to count, and many more beautiful memories to make — together.</p>
+      <div class="ornament" aria-hidden="true">♥</div>
+      <div style="font-family:'Playfair Display',Georgia,serif;color:var(--wine);font-size:1.6rem">ANINDITA &amp; SUBRATA</div>
+      <p style="margin-top:8px;font-size:.88rem">Kolkata, India · New York City</p>
+    </section>
+  </main>
+
+  <footer>
+    Made with <span class="heart">♥</span> by <strong>Anindita &amp; Subrata</strong> · Our little corner of the internet
+  </footer>
+</body>
+</html>
